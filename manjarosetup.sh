@@ -1,14 +1,16 @@
 pacman -Sy pacman grub coreutils
 
 pacman -r /mnt -Sy linux419 grub amd-ucode intel-ucode \
-xf86-video-ati mesa-vdpau lib32-mesa-vdpau xorg-server \
+mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau xorg-server \
+pulseaudio pulseaudio-alsa \
 bash coreutils nano sudo less grep \
-pacman pamac-cli pamac-gtk pamac-tray-appindicator \
-lightdm networkmanager network-manager-applet pulseaudio pulseaudio-alsa \
+pacman pamac-cli pamac-gtk \
+lightdm networkmanager network-manager-applet \
+manjaro-xfce-minimal-settings \
 xfce4-terminal xfce4-whiskermenu-plugin \
 thunar mousepad  \
 firefox htop \
-codeblocks
+codeblocks vlc
 
 #fstabgen -U /mnt > /mnt/etc/fstab
 #echo "EasyNoteMZ35" > /mnt/etc/hostname
