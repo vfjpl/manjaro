@@ -6,5 +6,7 @@ htop xfce4-terminal \
 firefox thunar mousepad \
 codeblocks
 
-fstabgen -U /mnt > /mnt/etc/fstab
+#fstabgen -U /mnt > /mnt/etc/fstab
+#echo "EasyNoteMZ35" > /mnt/etc/hostname
+#ln -sf /mnt/usr/share/zoneinfo/Europe/Warsaw /mnt/etc/localtime
 cp -a /mnt/etc/skel/. /mnt/home/kacper/
