@@ -1,15 +1,20 @@
 pacman -r /mnt -Sy linux419 grub amd-ucode intel-ucode \
-coreutils iputils findutils diffutils pciutils usbutils \
-bash util-linux e2fsprogs less grep \
-sudo nano man-db man-pages \
+#Base
+bash coreutils diffutils e2fsprogs filesystem findutils \
+grep iputils less man-db man-pages nano pciutils shadow \
+sudo usbutils util-linux \
+#Graphic and Audio
 mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau xorg-server \
 pulseaudio pulseaudio-alsa alsa-utils \
+#manjaro
 pacman pamac-cli pamac-gtk \
 lightdm networkmanager network-manager-applet \
 manjaro-xfce-minimal-settings manjaro-settings-manager \
+#xfce
 xfwm4 xfdesktop xfce4-settings xfce4-panel xfce4-whiskermenu-plugin \
 xfce4-terminal  xfce4-screenshooter \
-thunar mousepad ristretto \
+thunar mousepad ristretto qpdfview \
+#programs
 firefox htop \
 codeblocks vlc git
 
