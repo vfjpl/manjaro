@@ -20,6 +20,4 @@ xfce4-terminal xfce4-screenshooter
 thunar mousepad qpdfview viewnior
 `#programs`
 firefox htop vlc git
-codeblocks hexchat"
-
-manjaro-chroot /mnt "grub-install /dev/sda"
+codeblocks hexchat streamlink"
