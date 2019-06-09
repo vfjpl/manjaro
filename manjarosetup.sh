@@ -13,7 +13,7 @@ pacman pamac-cli pamac-gtk \
 lightdm networkmanager network-manager-applet \
 manjaro-settings-manager \
 `#xfce`\
-xfwm4 xfdesktop xfce4-settings xfce4-panel xfce4-whiskermenu-plugin \
+xfwm4 xfdesktop xfce4-panel xfce4-settings xfce4-whiskermenu-plugin \
 xfce4-terminal xfce4-screenshooter \
 thunar mousepad ristretto qpdfview \
 `#programs`\
