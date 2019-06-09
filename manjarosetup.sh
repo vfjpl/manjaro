@@ -17,9 +17,10 @@ xfwm4 xfdesktop xfce4-settings xfce4-panel xfce4-whiskermenu-plugin \
 xfce4-terminal xfce4-screenshooter \
 thunar mousepad ristretto qpdfview \
 #programs
-firefox htop \
-codeblocks vlc git
+firefox htop vlc git \
+codeblocks hexchat
 
+manjaro-chroot /mnt "grub-install /dev/sda"
 #grub-install --boot-directory=/mnt/boot /dev/sda
 #fstabgen -U /mnt > /mnt/etc/fstab
 #echo "EasyNoteMZ35" > /mnt/etc/hostname
