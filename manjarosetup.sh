@@ -4,15 +4,17 @@ bash coreutils diffutils e2fsprogs filesystem findutils \
 grep iputils less man-db man-pages nano pciutils shadow \
 sudo usbutils util-linux \
 #Graphic and Audio
-mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau xorg-server \
+mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
+xorg-server xorg-xinit \
 pulseaudio pulseaudio-alsa alsa-utils \
 #manjaro
+manjaro-system manjaro-xfce-minimal-settings \
 pacman pamac-cli pamac-gtk \
 lightdm networkmanager network-manager-applet \
-manjaro-xfce-minimal-settings manjaro-settings-manager \
+manjaro-settings-manager \
 #xfce
 xfwm4 xfdesktop xfce4-settings xfce4-panel xfce4-whiskermenu-plugin \
-xfce4-terminal  xfce4-screenshooter \
+xfce4-terminal xfce4-screenshooter \
 thunar mousepad ristretto qpdfview \
 #programs
 firefox htop \
