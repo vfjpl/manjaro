@@ -15,3 +15,5 @@ wget --no-hsts https://raw.githubusercontent.com/vfjpl/manjaro/master/manjaroset
 chmod +x manjarosetup.sh
 
 ./manjarosetup.sh
+
+reboot
