@@ -10,7 +10,7 @@ mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
 xorg-server xf86-video-ati \
 pulseaudio pulseaudio-alsa alsa-utils \
 `#manjaro`\
-manjaro-xfce-minimal-settings ttf-dejavu \
+manjaro-xfce-minimal-settings ttf-bitstream-vera \
 pacman pamac-cli pamac-gtk \
 lightdm lightdm-gtk-greeter \
 networkmanager network-manager-applet \
@@ -24,8 +24,7 @@ mousepad qpdfview viewnior engrampa \
 gvfs gksu-polkit catfish \
 `#programs`\
 firefox htop vlc git \
-codeblocks hexchat streamlink \
---confirm
+codeblocks hexchat streamlink
 
 #Install grub
 manjaro-chroot /mnt "grub-install /dev/sda"
@@ -44,4 +43,4 @@ manjaro-chroot /mnt "passwd kacper"
 #Set sudoers
 sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
 #Enable lightdm
-manjaro-chroot /mnt "systemctl enable display-manager"
+manjaro-chroot /mnt "systemctl enable lightdm"
