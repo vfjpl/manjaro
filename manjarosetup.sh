@@ -25,3 +25,5 @@ firefox htop vlc git
 codeblocks hexchat streamlink"
 
 manjaro-chroot /mnt "grub-install /dev/sda"
+fstabgen -U /mnt > /mnt/etc/fstab
+echo "EasyNoteMZ35" > /mnt/hostname
