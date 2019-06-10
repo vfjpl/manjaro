@@ -33,7 +33,7 @@ fstabgen -U /mnt | sudo tee /mnt/etc/fstab
 #Set hostname
 echo "EasyNoteMZ35" | sudo tee /mnt/etc/hostname
 #Set locale
-sudo sed -i '/s/#pl_PL.UTF-8/pl_PL.UTF-8/' /mnt/etc/locale.gen
+sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
 #Set timezone
 manjaro-chroot /mnt "ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
 #Add new user
