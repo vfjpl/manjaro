@@ -17,7 +17,7 @@ manjaro-settings-manager
 xfwm4 xfdesktop xfce4-panel xfce4-session
 xfce4-settings xfce4-whiskermenu-plugin
 xfce4-terminal xfce4-screenshooter
-thunar mousepad qpdfview viewnior
+thunar mousepad qpdfview viewnior engrampa
 `#programs`
 firefox htop vlc git
 codeblocks hexchat streamlink"
