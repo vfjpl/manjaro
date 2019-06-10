@@ -10,7 +10,7 @@ sudo mount -o noatime /dev/sda1 /mnt
 
 sudo swapon /dev/sda2
 
-wget --no-hsts https://raw.githubusercontent.com/vfjpl/manjaro/master/manjarosetup.sh
+wget --no-hsts https://git.io/fjgsm
 
 chmod +x manjarosetup.sh
 
