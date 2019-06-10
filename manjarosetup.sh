@@ -43,3 +43,5 @@ manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,power,network,video,audi
 manjaro-chroot /mnt "passwd kacper"
 #Set sudoers
 sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
+#Enable lightdm
+manjaro-chroot /mnt "systemctl enable display-manager"
