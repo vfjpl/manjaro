@@ -23,3 +23,5 @@ gvfs gksu-polkit catfish
 `#programs`
 firefox htop vlc git
 codeblocks hexchat streamlink"
+
+manjaro-chroot /mnt "grub-install /dev/sda"
