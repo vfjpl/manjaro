@@ -1,4 +1,4 @@
-basestrap -cGiM /mnt linux419 grub amd-ucode intel-ucode \
+basestrap -GM /mnt linux419 grub amd-ucode intel-ucode \
 `#Base`\
 bash coreutils diffutils e2fsprogs filesystem findutils \
 grep iputils less man-db man-pages nano patch pciutils \
@@ -8,7 +8,7 @@ mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
 xorg-server xf86-video-ati \
 pulseaudio pulseaudio-alsa alsa-utils \
 `#manjaro`\
-manjaro-xfce-minimal-settings \
+manjaro-xfce-minimal-settings ttf-bitstream-vera \
 pacman pamac-cli pamac-gtk \
 lightdm lightdm-gtk-greeter \
 networkmanager network-manager-applet \
