@@ -30,6 +30,8 @@ manjaro-chroot /mnt "grub-install /dev/sda"
 fstabgen -U /mnt > /mnt/etc/fstab
 #Set hostname
 echo "EasyNoteMZ35" > /mnt/etc/hostname
+#Set keyboard
+manjaro-chroot /mnt "localectl set-x11-keymap pl"
 #Set timezone
 manjaro-chroot /mnt "ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
 #Add new user
