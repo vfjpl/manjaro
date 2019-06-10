@@ -10,7 +10,7 @@ mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
 xorg-server xf86-video-ati \
 pulseaudio pulseaudio-alsa alsa-utils \
 `#manjaro`\
-manjaro-xfce-minimal-settings ttf-bitstream-vera \
+manjaro-xfce-minimal-settings ttf-dejavu \
 pacman pamac-cli pamac-gtk \
 lightdm lightdm-gtk-greeter \
 networkmanager network-manager-applet \
@@ -33,6 +33,7 @@ fstabgen -U /mnt | sudo tee /mnt/etc/fstab
 #Set hostname
 echo "EasyNoteMZ35" | sudo tee /mnt/etc/hostname
 #Set locale
+echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
 sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
 #Set timezone
 manjaro-chroot /mnt "ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
