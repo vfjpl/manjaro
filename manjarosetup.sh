@@ -24,6 +24,17 @@ gvfs gksu-polkit catfish
 firefox htop vlc git
 codeblocks hexchat streamlink"
 
+#Install grub
 manjaro-chroot /mnt "grub-install /dev/sda"
+#Generate fstab
 fstabgen -U /mnt > /mnt/etc/fstab
-echo "EasyNoteMZ35" > /mnt/hostname
+#Set hostname
+echo "EasyNoteMZ35" > /mnt/etc/hostname
+#Set timezone
+manjaro-chroot /mnt "ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
+#Add new user
+manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,power,network,video,audio,lp,sys,input"
+#Set password for new user
+manjaro-chroot /mnt "passwd kacper"
+#Set sudoers
+sed -i '/%wheel ALL=(ALL) ALL/s/^# //' /mnt/etc/sudoers
