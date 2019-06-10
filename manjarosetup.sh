@@ -23,8 +23,9 @@ xdg-user-dirs thunar thunar-archive-plugin \
 mousepad qpdfview viewnior engrampa \
 gvfs gksu-polkit catfish \
 `#programs`\
-firefox htop vlc git \
-codeblocks hexchat streamlink
+firefox firefox-i18n-pl hunspell-pl \
+codeblocks htop git \
+vlc streamlink hexchat
 
 #Install grub
 manjaro-chroot /mnt "grub-install /dev/sda"
