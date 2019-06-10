@@ -1,6 +1,6 @@
 sudo sed -i '/SigLevel/s/PackageRequired/PackageNever/' /etc/pacman.conf
 
-basestrap -GM /mnt linux419 grub amd-ucode intel-ucode \
+basestrap -GiM /mnt linux419 grub amd-ucode intel-ucode \
 `#Base`\
 bash coreutils diffutils e2fsprogs filesystem findutils \
 grep iputils less man-db man-pages nano patch pciutils \
@@ -33,14 +33,13 @@ fstabgen -U /mnt | sudo tee /mnt/etc/fstab
 #Set hostname
 echo "EasyNoteMZ35" | sudo tee /mnt/etc/hostname
 #Set locale
-echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
+sudo sed -i '/s/#pl_PL.UTF-8/pl_PL.UTF-8/' /mnt/etc/locale.gen
 #Set timezone
 manjaro-chroot /mnt "ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
 #Add new user
 manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,power,network,video,audio,lp,sys,input"
-#Set password for new user
 manjaro-chroot /mnt "passwd kacper"
-#Set sudoers
+#Set sudoers file
 sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
-#Enable lightdm
-manjaro-chroot /mnt "systemctl enable lightdm"
+#Enable services
+manjaro-chroot /mnt "systemctl enable lightdm NetworkManager"
