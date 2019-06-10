@@ -17,8 +17,9 @@ manjaro-settings-manager
 xfwm4 xfdesktop xfce4-panel xfce4-session
 xfce4-settings xfce4-whiskermenu-plugin
 xfce4-terminal xfce4-screenshooter
-thunar thunar-volman mousepad qpdfview viewnior engrampa
-thunar-archive-plugin gvfs gksu-polkit catfish
+xdg-user-dirs thunar thunar-archive-plugin
+mousepad qpdfview viewnior engrampa
+gvfs gksu-polkit catfish
 `#programs`
 firefox htop vlc git
 codeblocks hexchat streamlink"
