@@ -1,3 +1,5 @@
+sudo sed -i '/SigLevel/s/PackageRequired/PackageNever/' /etc/pacman.conf
+
 basestrap -GM /mnt linux419 grub amd-ucode intel-ucode \
 `#Base`\
 bash coreutils diffutils e2fsprogs filesystem findutils \
@@ -27,9 +29,9 @@ codeblocks hexchat streamlink
 #Install grub
 manjaro-chroot /mnt "grub-install /dev/sda"
 #Generate fstab
-fstabgen -U /mnt > /mnt/etc/fstab
+fstabgen -U /mnt | sudo tee /mnt/etc/fstab
 #Set hostname
-echo "EasyNoteMZ35" > /mnt/etc/hostname
+echo "EasyNoteMZ35" | sudo tee /mnt/etc/hostname
 #Set keyboard
 manjaro-chroot /mnt "localectl set-x11-keymap pl"
 #Set timezone
@@ -39,4 +41,4 @@ manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,power,network,video,audi
 #Set password for new user
 manjaro-chroot /mnt "passwd kacper"
 #Set sudoers
-sed -i '/%wheel ALL=(ALL) ALL/s/^# //' /mnt/etc/sudoers
+sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
