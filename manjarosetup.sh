@@ -10,7 +10,7 @@ mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
 xorg-server xf86-video-ati \
 pulseaudio pulseaudio-alsa alsa-utils \
 `#manjaro`\
-manjaro-xfce-minimal-settings ttf-bitstream-vera \
+manjaro-xfce-minimal-settings ttf-dejavu \
 pacman pamac-cli pamac-gtk \
 lightdm lightdm-gtk-greeter \
 networkmanager network-manager-applet \
@@ -24,7 +24,8 @@ mousepad qpdfview viewnior engrampa \
 gvfs gksu-polkit catfish \
 `#programs`\
 firefox htop vlc git \
-codeblocks hexchat streamlink
+codeblocks hexchat streamlink \
+--confirm
 
 #Install grub
 manjaro-chroot /mnt "grub-install /dev/sda"
@@ -32,8 +33,8 @@ manjaro-chroot /mnt "grub-install /dev/sda"
 fstabgen -U /mnt | sudo tee /mnt/etc/fstab
 #Set hostname
 echo "EasyNoteMZ35" | sudo tee /mnt/etc/hostname
-#Set keyboard
-manjaro-chroot /mnt "localectl set-x11-keymap pl"
+#Set locale
+echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
 #Set timezone
 manjaro-chroot /mnt "ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
 #Add new user
