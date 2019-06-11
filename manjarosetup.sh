@@ -55,7 +55,7 @@ manjaro-chroot /mnt "passwd kacper"
 
 #settings
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
-manjaro-chroot /mnt "systemctl enable lightdm NetworkManager"
+manjaro-chroot /mnt "systemctl enable lightdm NetworkManager systemd-timesyncd"
 manjaro-chroot /mnt "pacman-key --init"
 manjaro-chroot /mnt "pacman-key --populate"
 manjaro-chroot /mnt "pacman-mirrors -c Poland"
