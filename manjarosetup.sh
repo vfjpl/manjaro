@@ -45,17 +45,17 @@ echo "Section \"InputClass\"
         Identifier \"system-keyboard\"
         MatchIsKeyboard \"on\"
         Option \"XkbLayout\" \"pl\"
-EndSection" | sudo tee -a /mnt/etc/X11/xorg.conf.d/00-keyboard.conf
+EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/00-keyboard.conf
 manjaro-chroot /mnt "locale-gen"
 
-#add new user
-sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
-manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
-manjaro-chroot /mnt "passwd kacper"
-
 #settings
+sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
 manjaro-chroot /mnt "systemctl enable lightdm NetworkManager systemd-timesyncd"
 manjaro-chroot /mnt "pacman-key --init"
 manjaro-chroot /mnt "pacman-key --populate"
 manjaro-chroot /mnt "pacman-mirrors -c Poland"
+
+#add new user
+manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
+manjaro-chroot /mnt "passwd kacper"
