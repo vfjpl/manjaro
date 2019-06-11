@@ -53,11 +53,12 @@ manjaro-chroot /mnt "locale-gen"
 sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
 sudo sed -i 's/#autologin-user=/autologin-user=kacper/' /mnt/etc/lightdm/lightdm.conf
+sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/quiet/quiet i8042.direct/' /mnt/etc/default/grub
 manjaro-chroot /mnt "systemctl enable lightdm NetworkManager systemd-timesyncd"
 manjaro-chroot /mnt "pacman-key --init"
 manjaro-chroot /mnt "pacman-key --populate"
 manjaro-chroot /mnt "pacman-mirrors -c Poland"
-sudo nano /usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf
+sudo nano /mnt/usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf
 
 #add new user
 manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
