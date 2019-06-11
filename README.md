@@ -1,6 +1,6 @@
 nmtui-connect
 
-fdisk /dev/sda
+sudo fdisk /dev/sda
 
 sudo mkfs.ext4 /dev/sda1
 
@@ -12,8 +12,8 @@ sudo swapon /dev/sda2
 
 wget --no-hsts https://git.io/fjgsm
 
-chmod +x manjarosetup.sh
+chmod +x fjgsm
 
-./manjarosetup.sh
+./fjgsm
 
 reboot
