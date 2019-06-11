@@ -1,4 +1,5 @@
 sudo sed -i '/SigLevel/s/PackageRequired/PackageNever/' /etc/pacman.conf
+sudo pacman-mirrors -c Poland
 
 basestrap -GiM /mnt linux419 grub amd-ucode intel-ucode \
 `#Base`\
@@ -24,7 +25,7 @@ mousepad qpdfview viewnior engrampa \
 gvfs gksu-polkit catfish \
 `#programs`\
 firefox firefox-i18n-pl hunspell-pl \
-codeblocks htop git \
+codeblocks sfml htop git \
 vlc streamlink hexchat
 
 #Install grub
