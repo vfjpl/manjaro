@@ -51,3 +51,7 @@ manjaro-chroot /mnt "systemctl enable lightdm NetworkManager"
 manjaro-chroot /mnt "locale-gen"
 #Set default xcursor
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
+#Setup pacman
+manjaro-chroot /mnt "pacman-key --init"
+manjaro-chroot /mnt "pacman-key --populate"
+manjaro-chroot /mnt "pacman-mirrors -c Poland"
