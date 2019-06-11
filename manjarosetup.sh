@@ -31,6 +31,7 @@ vlc streamlink hexchat
 
 #generate fstab and install grub
 fstabgen -U /mnt | sudo tee -a /mnt/etc/fstab
+sudo sed -i 's/,pri=-2/       /' /mnt/etc/fstab
 manjaro-chroot /mnt "grub-install /dev/sda"
 
 #set hostname and timezone
@@ -51,10 +52,12 @@ manjaro-chroot /mnt "locale-gen"
 #settings
 sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
+sudo sed -i 's/#autologin-user=/autologin-user=kacper/' /mnt/etc/lightdm/lightdm.conf
 manjaro-chroot /mnt "systemctl enable lightdm NetworkManager systemd-timesyncd"
 manjaro-chroot /mnt "pacman-key --init"
 manjaro-chroot /mnt "pacman-key --populate"
 manjaro-chroot /mnt "pacman-mirrors -c Poland"
+sudo nano /usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf
 
 #add new user
 manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
