@@ -28,30 +28,28 @@ firefox firefox-i18n-pl hunspell-pl \
 codeblocks sfml htop git \
 vlc streamlink hexchat
 
-#Install grub
-manjaro-chroot /mnt "grub-install /dev/sda"
-#Generate fstab
+#generate fstab and install grub
 fstabgen -U /mnt | sudo tee -a /mnt/etc/fstab
-#Set hostname
+manjaro-chroot /mnt "grub-install /dev/sda"
+
+#set hostname and timezone
 echo "EasyNoteMZ35" | sudo tee /mnt/etc/hostname
-#Set locale
-echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
-sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
-echo "KEYMAP=pl" | sudo tee /mnt/etc/vconsole.conf
-#Set timezone
 manjaro-chroot /mnt "ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
-#Add new user
+
+#set locale
+sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
+echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
+echo "KEYMAP=pl" | sudo tee /mnt/etc/vconsole.conf
+manjaro-chroot /mnt "locale-gen"
+
+#add new user
+sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
 manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
 manjaro-chroot /mnt "passwd kacper"
-#Set sudoers file
-sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
-#Enable services
-manjaro-chroot /mnt "systemctl enable lightdm NetworkManager"
-#Generate locales
-manjaro-chroot /mnt "locale-gen"
-#Set default xcursor
+
+#settings
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
-#Setup pacman
+manjaro-chroot /mnt "systemctl enable lightdm NetworkManager"
 manjaro-chroot /mnt "pacman-key --init"
 manjaro-chroot /mnt "pacman-key --populate"
 manjaro-chroot /mnt "pacman-mirrors -c Poland"
