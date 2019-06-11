@@ -31,18 +31,23 @@ vlc streamlink hexchat
 #Install grub
 manjaro-chroot /mnt "grub-install /dev/sda"
 #Generate fstab
-fstabgen -U /mnt | sudo tee /mnt/etc/fstab
+fstabgen -U /mnt | sudo tee -a /mnt/etc/fstab
 #Set hostname
 echo "EasyNoteMZ35" | sudo tee /mnt/etc/hostname
 #Set locale
 echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
 sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
+echo "KEYMAP=pl" | sudo tee /mnt/etc/vconsole.conf
 #Set timezone
 manjaro-chroot /mnt "ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
 #Add new user
-manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,power,network,video,audio,lp,sys,input"
+manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
 manjaro-chroot /mnt "passwd kacper"
 #Set sudoers file
 sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
 #Enable services
 manjaro-chroot /mnt "systemctl enable lightdm NetworkManager"
+#Generate locales
+manjaro-chroot /mnt "locale-gen"
+#Set default xcursor
+sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
