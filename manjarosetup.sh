@@ -60,6 +60,14 @@ manjaro-chroot /mnt "pacman-key --populate"
 manjaro-chroot /mnt "pacman-mirrors -c Poland"
 sudo nano /mnt/usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf
 
+echo '# set scheduler for non-rotating disks
+# noop and deadline are recommended for non-rotating disks
+# for rotational disks, cfq gives better performance and bfq more responsive desktop environment
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="none"
+# set scheduler for rotating disks
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"' | sudo tee /etc/udev/rules.d/60-ioscheduler.rules
+
+
 #add new user
 manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
 manjaro-chroot /mnt "passwd kacper"
