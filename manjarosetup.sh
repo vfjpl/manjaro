@@ -28,6 +28,7 @@ firefox firefox-i18n-pl hunspell-pl \
 codeblocks sfml htop git \
 vlc streamlink hexchat
 
+
 #generate fstab and install grub
 fstabgen -U /mnt | sudo tee -a /mnt/etc/fstab
 manjaro-chroot /mnt "grub-install /dev/sda"
@@ -40,6 +41,11 @@ manjaro-chroot /mnt "ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
 sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
 echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
 echo "KEYMAP=pl" | sudo tee /mnt/etc/vconsole.conf
+echo "Section \"InputClass\"
+        Identifier \"system-keyboard\"
+        MatchIsKeyboard \"on\"
+        Option \"XkbLayout\" \"pl\"
+EndSection" | sudo tee -a /mnt/etc/X11/xorg.conf.d/00-keyboard.conf
 manjaro-chroot /mnt "locale-gen"
 
 #add new user
