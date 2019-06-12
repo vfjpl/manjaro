@@ -6,6 +6,7 @@ basestrap -GiM /mnt linux419 grub amd-ucode intel-ucode \
 bash coreutils diffutils e2fsprogs filesystem findutils \
 grep iputils less man-db man-pages nano patch pciutils \
 sed shadow sudo systemd-sysvcompat tlp usbutils util-linux \
+gcc \
 `#Graphic and Audio`\
 mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
 xorg-server xf86-video-ati \
