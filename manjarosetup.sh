@@ -8,7 +8,7 @@ linux419 grub amd-ucode intel-ucode \
 bash coreutils diffutils e2fsprogs filesystem findutils \
 grep iputils less man-db man-pages nano pciutils \
 sed shadow sudo systemd-sysvcompat usbutils util-linux \
-patch tlp gcc \
+patch tlp gcc xssstate\
 `#Graphic and Audio`\
 mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
 xorg-server xf86-video-ati \
