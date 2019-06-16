@@ -5,10 +5,10 @@ basestrap -GiM /mnt \
 `#Kernel`\
 linux419 grub amd-ucode intel-ucode \
 `#Base`\
-bash coreutils diffutils e2fsprogs filesystem findutils \
-grep iputils less man-db man-pages nano pciutils \
+bash coreutils diffutils e2fsprogs file filesystem findutils \
+gawk grep iputils less man-db man-pages nano pciutils \
 sed shadow sudo systemd-sysvcompat usbutils util-linux \
-patch tlp gcc xssstate\
+patch tlp gcc xssstate \
 `#Graphic and Audio`\
 mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
 xorg-server xf86-video-ati \
