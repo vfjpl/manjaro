@@ -3,12 +3,12 @@ sudo pacman-mirrors -c Poland
 
 basestrap -GiM /mnt \
 `#Kernel`\
-linux419 grub amd-ucode intel-ucode \
+linux50 grub amd-ucode intel-ucode \
 `#Base`\
-bash coreutils diffutils e2fsprogs file filesystem findutils \
-gawk grep iputils less man-db man-pages nano pciutils \
+coreutils diffutils e2fsprogs filesystem findutils gawk grep \
+iputils less man-db man-pages nano pciutils procps-ng psmisc \
 sed shadow sudo systemd-sysvcompat usbutils util-linux \
-patch tlp gcc xssstate \
+bash patch tlp gcc xssstate \
 `#Graphic and Audio`\
 mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
 xorg-server xf86-video-ati \
@@ -55,17 +55,12 @@ manjaro-chroot /mnt "locale-gen"
 #settings
 sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
-sudo sed -i 's/#autologin-user=/autologin-user=kacper/' /mnt/etc/lightdm/lightdm.conf
 sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/quiet/quiet i8042.direct/' /mnt/etc/default/grub
 manjaro-chroot /mnt "systemctl enable lightdm NetworkManager systemd-timesyncd"
 manjaro-chroot /mnt "pacman-key --init"
 manjaro-chroot /mnt "pacman-key --populate"
 manjaro-chroot /mnt "pacman-mirrors -c Poland"
 sudo nano /mnt/usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf
-
-echo 'ACTION=="add|change", KERNEL=="sr[0-9]", ATTR{queue/scheduler}="none"
-ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="none"
-ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"' | sudo tee /etc/udev/rules.d/60-ioscheduler.rules
 
 
 #add new user
