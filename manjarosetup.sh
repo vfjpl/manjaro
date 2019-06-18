@@ -47,7 +47,7 @@ echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
 echo "KEYMAP=pl" | sudo tee /mnt/etc/vconsole.conf
 echo "Section \"InputClass\"
         Identifier \"system-keyboard\"
-        MatchIsKeyboard \"on\"
+        MatchIsKeyboard \"yes\"
         Option \"XkbLayout\" \"pl\"
 EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/00-keyboard.conf
 manjaro-chroot /mnt "locale-gen"
@@ -62,6 +62,12 @@ manjaro-chroot /mnt "pacman-key --populate"
 manjaro-chroot /mnt "pacman-mirrors -c Poland"
 sudo nano /mnt/usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf
 
+echo "Section \"InputClass\"
+        Identifier \"system-mouse\"
+        Driver \"libinput\"
+        MatchIsPointer \"yes\"
+        Option \"AccelProfile\" \"flat\"
+EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/50-mouse.conf
 
 #add new user
 manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
