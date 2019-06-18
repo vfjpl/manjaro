@@ -55,7 +55,7 @@ manjaro-chroot /mnt "locale-gen"
 #settings
 sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
-sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/quiet/quiet i8042.direct/' /mnt/etc/default/grub
+sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/udev.log_priority=3/i8042.direct/' /mnt/etc/default/grub
 manjaro-chroot /mnt "systemctl enable lightdm NetworkManager systemd-timesyncd"
 manjaro-chroot /mnt "pacman-key --init"
 manjaro-chroot /mnt "pacman-key --populate"
