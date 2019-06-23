@@ -5,10 +5,10 @@ basestrap -GiM /mnt \
 `#Kernel`\
 linux50 grub amd-ucode intel-ucode \
 `#Base`\
-coreutils diffutils e2fsprogs filesystem findutils gawk grep \
-iputils less man-db man-pages nano pciutils procps-ng psmisc \
-sed shadow sudo systemd-sysvcompat usbutils util-linux \
-bash patch tlp gcc xssstate \
+bash coreutils diffutils e2fsprogs filesystem findutils gawk grep \
+iputils iproute2 less man-db man-pages nano pciutils procps-ng psmisc \
+sed shadow systemd-sysvcompat usbutils util-linux \
+gcc git patch sudo tlp xssstate \
 `#Graphic and Audio`\
 mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
 xorg-server xf86-video-ati \
@@ -27,8 +27,8 @@ xdg-user-dirs thunar thunar-archive-plugin \
 mousepad qpdfview viewnior engrampa \
 gvfs gksu-polkit catfish \
 `#programs`\
-firefox firefox-i18n-pl hunspell-pl \
-codeblocks sfml htop git \
+firefox firefox-i18n-pl hunspell-pl hunspell-en_US \
+codeblocks sfml poco htop \
 vlc streamlink hexchat
 
 
