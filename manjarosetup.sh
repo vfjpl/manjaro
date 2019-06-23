@@ -25,7 +25,7 @@ xfce4-settings xfce4-whiskermenu-plugin \
 xfce4-terminal xfce4-screenshooter \
 xdg-user-dirs thunar thunar-archive-plugin \
 mousepad qpdfview viewnior engrampa \
-gvfs gksu-polkit catfish \
+dbus-x11 gvfs gksu-polkit catfish \
 `#programs`\
 firefox firefox-i18n-pl hunspell-pl hunspell-en_US \
 codeblocks sfml poco htop \
