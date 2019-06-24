@@ -6,7 +6,7 @@ basestrap -GiM /mnt \
 linux50 grub amd-ucode intel-ucode \
 `#Base`\
 bash coreutils diffutils e2fsprogs filesystem findutils gawk grep \
-iputils iproute2 less man-db man-pages nano pciutils procps-ng psmisc \
+iproute2 iputils less man-db man-pages nano pciutils procps-ng psmisc \
 sed shadow systemd-sysvcompat usbutils util-linux \
 gcc git patch sudo systemd tlp xssstate \
 `#Graphic and Audio`\
@@ -60,7 +60,6 @@ manjaro-chroot /mnt "systemctl enable lightdm NetworkManager systemd-timesyncd"
 manjaro-chroot /mnt "pacman-key --init"
 manjaro-chroot /mnt "pacman-key --populate"
 manjaro-chroot /mnt "pacman-mirrors -c Poland"
-sudo nano /mnt/usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf
 
 echo "Section \"InputClass\"
         Identifier \"system-mouse\"
@@ -69,6 +68,8 @@ echo "Section \"InputClass\"
         Option \"AccelProfile\" \"flat\"
 EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/50-mouse.conf
 
+sudo nano /mnt/usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf
+
 #add new user
-manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
+manjaro-chroot /mnt "useradd kacper -m -G autologin,wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
 manjaro-chroot /mnt "passwd kacper"
