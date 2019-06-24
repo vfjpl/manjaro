@@ -5,13 +5,12 @@ basestrap -GiM /mnt \
 `#Kernel`\
 linux50 grub amd-ucode intel-ucode \
 `#Base`\
-bash coreutils diffutils e2fsprogs filesystem findutils gawk glibc grep \
+bash coreutils diffutils e2fsprogs filesystem findutils gawk grep \
 iputils iproute2 less man-db man-pages nano pciutils procps-ng psmisc \
 sed shadow systemd-sysvcompat usbutils util-linux \
-gcc git patch sudo tlp xssstate \
+gcc git patch sudo systemd tlp xssstate \
 `#Graphic and Audio`\
-mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
-mesa-demos \
+mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau mesa-demos \
 xorg-server xf86-video-ati \
 pulseaudio pulseaudio-alsa alsa-utils \
 `#manjaro`\
@@ -21,7 +20,7 @@ lightdm lightdm-gtk-greeter \
 networkmanager network-manager-applet \
 manjaro-settings-manager \
 `#xfce`\
-xfwm4 xfdesktop xfce4-panel xfce4-session \
+xfwm4 xfconf xfdesktop xfce4-panel xfce4-session \
 xfce4-settings xfce4-whiskermenu-plugin \
 xfce4-terminal xfce4-screenshooter xfburn \
 xdg-user-dirs thunar thunar-archive-plugin \
@@ -29,8 +28,8 @@ mousepad qpdfview viewnior engrampa \
 dbus-x11 gvfs gksu-polkit catfish \
 `#programs`\
 firefox firefox-i18n-pl hunspell-pl hunspell-en_US \
-codeblocks sfml poco htop \
-vlc streamlink
+codeblocks sfml poco \
+vlc streamlink htop
 
 
 #generate fstab and install grub
