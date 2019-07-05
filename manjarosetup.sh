@@ -3,14 +3,15 @@ sudo pacman-mirrors -c Poland
 
 basestrap -GiM /mnt \
 `#Kernel`\
-linux50 grub amd-ucode intel-ucode \
+linux51 grub amd-ucode intel-ucode \
 `#Base`\
 bash coreutils diffutils e2fsprogs filesystem findutils gawk grep \
 iproute2 iputils less man-db man-pages nano pciutils procps-ng psmisc \
 sed shadow systemd-sysvcompat usbutils util-linux \
-gcc git patch sudo systemd tlp xssstate \
+gcc gdb git patch sudo systemd tlp xssstate \
 `#Graphic and Audio`\
-mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau mesa-demos \
+mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
+mesa-demos \
 xorg-server xf86-video-ati \
 pulseaudio pulseaudio-alsa alsa-utils \
 `#manjaro`\
@@ -35,6 +36,7 @@ vlc streamlink htop
 #generate fstab and install grub
 fstabgen -U /mnt | sudo tee -a /mnt/etc/fstab
 sudo sed -i 's/,pri=-2/       /' /mnt/etc/fstab
+sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/udev.log_priority=3/i8042.direct/' /mnt/etc/default/grub
 manjaro-chroot /mnt "grub-install /dev/sda"
 
 #set hostname and timezone
@@ -55,7 +57,6 @@ manjaro-chroot /mnt "locale-gen"
 #settings
 sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
-sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/udev.log_priority=3/i8042.direct/' /mnt/etc/default/grub
 manjaro-chroot /mnt "systemctl enable lightdm NetworkManager systemd-timesyncd"
 manjaro-chroot /mnt "pacman-key --init"
 manjaro-chroot /mnt "pacman-key --populate"
