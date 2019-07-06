@@ -1,5 +1,6 @@
 sudo sed -i '/SigLevel/s/PackageRequired/PackageNever/' /etc/pacman.conf
 sudo pacman-mirrors -c Poland
+sudo pacman -Sy manjaro-architect-launcher manjaro-architect manjaro-tools-base
 
 basestrap -GiM /mnt \
 `#Kernel`\
@@ -21,12 +22,13 @@ lightdm lightdm-gtk-greeter \
 networkmanager network-manager-applet \
 manjaro-settings-manager \
 `#xfce`\
-xfwm4 xfconf xfdesktop xfce4-panel xfce4-session \
-xfce4-settings xfce4-whiskermenu-plugin \
-xfce4-terminal xfce4-screenshooter xfburn \
-xdg-user-dirs thunar thunar-archive-plugin \
+xfwm4 xfconf xfdesktop \
+xfce4-session xfce4-panel xfce4-whiskermenu-plugin \
+xfce4-settings xfce4-terminal \
+xfce4-screenshooter xfburn \
+thunar thunar-archive-plugin thunar-media-tags-plugin \
 mousepad qpdfview viewnior engrampa \
-dbus-x11 gvfs gksu-polkit catfish \
+xdg-user-dirs dbus-x11 gvfs gksu-polkit catfish \
 `#programs`\
 firefox firefox-i18n-pl hunspell-pl hunspell-en_US \
 codeblocks sfml poco \
@@ -72,5 +74,5 @@ EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/50-mouse.conf
 sudo nano /mnt/usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf
 
 #add new user
-manjaro-chroot /mnt "useradd kacper -m -G autologin,wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
+manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
 manjaro-chroot /mnt "passwd kacper"
