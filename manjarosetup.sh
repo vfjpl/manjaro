@@ -37,7 +37,7 @@ vlc streamlink htop
 
 #generate fstab and install grub
 fstabgen -U /mnt | sudo tee -a /mnt/etc/fstab
-sudo sed -i 's/,pri=-2/  	/' /mnt/etc/fstab
+sudo sed -i 's/,pri=-2/	/' /mnt/etc/fstab
 sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/udev.log_priority=3/i8042.direct/' /mnt/etc/default/grub
 manjaro-chroot /mnt "grub-install /dev/sda"
 manjaro-chroot /mnt "update-grub"
