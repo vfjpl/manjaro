@@ -9,7 +9,7 @@ linux51 grub amd-ucode intel-ucode \
 bash coreutils diffutils e2fsprogs filesystem findutils gawk grep \
 iproute2 iputils less man-db man-pages nano pciutils procps-ng psmisc \
 sed shadow systemd-sysvcompat usbutils util-linux \
-gcc gdb git patch sudo systemd tlp xssstate \
+gcc gdb git patch pkgconf sudo systemd tlp xssstate \
 `#Graphic and Audio`\
 mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
 mesa-demos \
