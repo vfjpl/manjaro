@@ -30,7 +30,7 @@ xfce4-settings xfce4-terminal \
 xfce4-screenshooter xfburn \
 thunar thunar-archive-plugin thunar-media-tags-plugin \
 mousepad qpdfview viewnior engrampa \
-xdg-user-dirs dbus-x11 gvfs gksu-polkit catfish \
+xdg-user-dirs gvfs gksu-polkit catfish \
 `#programs`\
 firefox firefox-i18n-pl hunspell-pl hunspell-en_US \
 codeblocks sfml poco \
