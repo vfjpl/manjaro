@@ -4,7 +4,7 @@ sudo pacman -Sy manjaro-architect-launcher manjaro-architect manjaro-tools-base
 
 basestrap -GiM /mnt \
 `#Kernel`\
-linux51 grub amd-ucode intel-ucode \
+linux53 grub amd-ucode intel-ucode \
 `#Base`\
 bash coreutils diffutils e2fsprogs filesystem findutils gawk grep \
 iproute2 iputils less man-db man-pages nano pciutils procps-ng psmisc \
@@ -30,7 +30,7 @@ xfce4-settings xfce4-terminal \
 xfce4-screenshooter xfburn \
 thunar thunar-archive-plugin thunar-media-tags-plugin \
 mousepad qpdfview viewnior engrampa \
-xdg-user-dirs gvfs gksu-polkit catfish \
+xdg-user-dirs gvfs catfish \
 `#programs`\
 firefox firefox-i18n-pl hunspell-pl hunspell-en_US \
 codeblocks sfml poco \
