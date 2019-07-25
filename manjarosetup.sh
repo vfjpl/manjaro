@@ -6,12 +6,14 @@ basestrap -GiM /mnt \
 `#Kernel`\
 linux53 grub amd-ucode intel-ucode \
 `#Base`\
-bash coreutils diffutils e2fsprogs filesystem findutils gawk grep \
-iproute2 iputils less man-db man-pages nano pciutils procps-ng psmisc \
+bash coreutils e2fsprogs filesystem gawk grep iproute2 iputils \
+less man-db man-pages nano pciutils procps-ng psmisc \
 sed shadow systemd-sysvcompat usbutils util-linux \
-sudo systemd tlp xssstate \
+openssh sudo systemd tlp xssstate \
+'#Weird'\
+patch diffutils findutils \
 `#Dev`\
-gcc gdb git patch pkgconf make \
+gcc gdb git pkgconf make fakeroot \
 `#Graphic and Audio`\
 mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
 mesa-demos \
