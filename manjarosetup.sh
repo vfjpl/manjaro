@@ -8,9 +8,8 @@ linux53 grub amd-ucode intel-ucode \
 `#Base`\
 bash coreutils e2fsprogs filesystem gawk grep iproute2 iputils \
 less man-db man-pages nano pciutils procps-ng psmisc \
-sed shadow systemd-sysvcompat usbutils util-linux \
-openssh sudo systemd tlp xssstate \
-'#Weird'\
+sed shadow usbutils util-linux openssh \
+sudo systemd systemd-sysvcompat tlp xssstate \
 patch diffutils findutils \
 `#Dev`\
 gcc gdb git pkgconf make fakeroot \
@@ -36,7 +35,7 @@ xdg-user-dirs gvfs catfish \
 `#programs`\
 firefox firefox-i18n-pl hunspell-pl hunspell-en_US \
 codeblocks sfml poco \
-vlc streamlink htop
+vlc ffmpeg streamlink htop
 
 
 #generate fstab and install grub
