@@ -43,11 +43,7 @@ sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/udev.log_priority=3/i8042.direct/' /m
 manjaro-chroot /mnt "grub-install /dev/sda"
 manjaro-chroot /mnt "update-grub"
 
-#set hostname and timezone
-echo "EasyNoteMZ35" | sudo tee /mnt/etc/hostname
-manjaro-chroot /mnt "ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
-
-#set locale
+#settings
 sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
 echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
 echo "KEYMAP=pl" | sudo tee /mnt/etc/vconsole.conf
@@ -56,23 +52,29 @@ echo "Section \"InputClass\"
         MatchIsKeyboard \"yes\"
         Option \"XkbLayout\" \"pl\"
 EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/00-keyboard.conf
-manjaro-chroot /mnt "locale-gen"
-
-#settings
-sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
-sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
-manjaro-chroot /mnt "systemctl enable lightdm NetworkManager systemd-timesyncd"
-manjaro-chroot /mnt "pacman-key --init"
-manjaro-chroot /mnt "pacman-key --populate"
-manjaro-chroot /mnt "pacman-mirrors -c Poland"
-
 echo "Section \"InputClass\"
         Identifier \"system-mouse\"
         Driver \"libinput\"
         MatchIsPointer \"yes\"
         Option \"AccelProfile\" \"flat\"
 EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/50-mouse.conf
+sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
+sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
 
-#add new user
-manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
-manjaro-chroot /mnt "passwd kacper"
+#init
+manjaro-chroot /mnt "ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
+manjaro-chroot /mnt "locale-gen"
+manjaro-chroot /mnt "systemctl enable lightdm NetworkManager systemd-timesyncd"
+manjaro-chroot /mnt "pacman-key --init"
+manjaro-chroot /mnt "pacman-key --populate"
+manjaro-chroot /mnt "pacman-mirrors -c Poland"
+
+#manual
+echo "Nazwa komputera:"
+read hostname
+echo $hostname | sudo tee /mnt/etc/hostname
+echo "Nazwa uzytkownika:"
+read username
+manjaro-chroot /mnt "useradd $username -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
+echo "Haslo:"
+manjaro-chroot /mnt "passwd $username"
