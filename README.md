@@ -2,11 +2,11 @@
 
 `sudo dd if=/dev/zero of=/dev/sda count=4096`
 
-1. połącz sie z internetem
+1. połącz się z internetem
 
 `nmtui-connect`
 
-2. podstawowa 1 na system typ/id 83(domyślnie), podstawowa 2 na swap typ/id 82
+2. stwórz partycje: podstawowa 1 na system typ/id 83(domyślnie), podstawowa 2 na swap typ/id 82
 
 `sudo fdisk /dev/sda`
 
