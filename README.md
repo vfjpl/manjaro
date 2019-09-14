@@ -1,12 +1,12 @@
+0. usuń MBR(partycje) z dysku
+
+sudo dd if=/dev/zero of=/dev/sda count=4096
+
 1. połącz sie z internetem
 
 nmtui-connect
 
-2. usuń MBR(partycje) z dysku
-
-sudo dd if=/dev/zero of=/dev/sda count=4096
-
-3. podstawowa 1 na system typ/id 83(domyślnie), podstawowa 2 na swap typ/id 82
+2. podstawowa 1 na system typ/id 83(domyślnie), podstawowa 2 na swap typ/id 82
 
 sudo fdisk /dev/sda
 
