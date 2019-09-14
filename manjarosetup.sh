@@ -1,6 +1,5 @@
 sudo sed -i '/SigLevel/s/PackageRequired/PackageNever/' /etc/pacman.conf
 sudo pacman-mirrors -c Poland
-sudo pacman -Sy manjaro-architect-launcher manjaro-architect manjaro-tools-base
 
 basestrap -GiM /mnt \
 `#Kernel`\
@@ -40,7 +39,6 @@ vlc ffmpeg streamlink htop
 
 #generate fstab and install grub
 fstabgen -U /mnt | sudo tee -a /mnt/etc/fstab
-sudo sed -i 's/,pri=-2/	/' /mnt/etc/fstab
 sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/udev.log_priority=3/i8042.direct/' /mnt/etc/default/grub
 manjaro-chroot /mnt "grub-install /dev/sda"
 manjaro-chroot /mnt "update-grub"
@@ -74,9 +72,6 @@ echo "Section \"InputClass\"
         MatchIsPointer \"yes\"
         Option \"AccelProfile\" \"flat\"
 EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/50-mouse.conf
-
-sudo nano /mnt/usr/share/pulseaudio/alsa-mixer/profile-sets/default.conf
-sudo nano /mnt/etc/default/tlp
 
 #add new user
 manjaro-chroot /mnt "useradd kacper -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
