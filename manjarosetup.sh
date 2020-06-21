@@ -3,7 +3,7 @@ sudo pacman-mirrors -c Poland
 
 basestrap -GiM /mnt \
 `#Kernel`\
-linux53 grub amd-ucode intel-ucode \
+linux-latest grub amd-ucode intel-ucode \
 `#Base`\
 bash coreutils e2fsprogs filesystem gawk grep iproute2 iputils \
 less man-db man-pages nano pciutils procps-ng psmisc \
@@ -34,12 +34,12 @@ xdg-user-dirs gvfs catfish \
 `#programs`\
 firefox firefox-i18n-pl hunspell-pl hunspell-en_US \
 codeblocks sfml poco \
-vlc ffmpeg streamlink htop
+mpv ffmpeg streamlink htop
 
 
 #generate fstab and install grub
 fstabgen -U /mnt | sudo tee -a /mnt/etc/fstab
-sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/udev.log_priority=3/i8042.direct/' /mnt/etc/default/grub
+sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/quiet/quiet i8042.direct mitigations=off/' /mnt/etc/default/grub
 manjaro-chroot /mnt "grub-install /dev/sda"
 manjaro-chroot /mnt "update-grub"
 
@@ -48,15 +48,15 @@ sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
 echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
 echo "KEYMAP=pl" | sudo tee /mnt/etc/vconsole.conf
 echo "Section \"InputClass\"
-        Identifier \"system-keyboard\"
-        MatchIsKeyboard \"yes\"
-        Option \"XkbLayout\" \"pl\"
+	Identifier \"system-keyboard\"
+	MatchIsKeyboard \"yes\"
+	Option \"XkbLayout\" \"pl\"
 EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/00-keyboard.conf
 echo "Section \"InputClass\"
-        Identifier \"system-mouse\"
-        Driver \"libinput\"
-        MatchIsPointer \"yes\"
-        Option \"AccelProfile\" \"flat\"
+	Identifier \"system-mouse\"
+	Driver \"libinput\"
+	MatchIsPointer \"yes\"
+	Option \"AccelProfile\" \"flat\"
 EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/50-mouse.conf
 sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
