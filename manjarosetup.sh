@@ -11,7 +11,7 @@ sed shadow usbutils util-linux openssh \
 sudo systemd systemd-sysvcompat tlp xssstate \
 patch diffutils findutils \
 `#Dev`\
-gcc gdb git pkgconf make fakeroot \
+gcc gdb git pkgconf make cmake fakeroot \
 `#Graphic and Audio`\
 mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
 mesa-demos \
@@ -33,9 +33,9 @@ mousepad qpdfview viewnior engrampa \
 xdg-user-dirs gvfs catfish \
 `#programs`\
 firefox firefox-i18n-pl hunspell-pl hunspell-en_US \
-codeblocks sfml poco \
-mpv ffmpeg streamlink htop
-
+codeblocks mpv ffmpeg streamlink htop \
+`#libs`\
+sfml poco boost lua51 physfs
 
 #generate fstab and install grub
 fstabgen -U /mnt | sudo tee -a /mnt/etc/fstab
