@@ -47,6 +47,7 @@ manjaro-chroot /mnt "update-grub"
 sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
 echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
 echo "KEYMAP=pl" | sudo tee /mnt/etc/vconsole.conf
+echo "kernel.sysrq = 1" | sudo tee /mnt/etc/sysctl.d/99-sysctl.conf
 echo "Section \"InputClass\"
 	Identifier \"system-keyboard\"
 	MatchIsKeyboard \"yes\"
@@ -58,7 +59,6 @@ echo "Section \"InputClass\"
 	MatchIsPointer \"yes\"
 	Option \"AccelProfile\" \"flat\"
 EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/50-mouse.conf
-echo "kernel.sysrq = 1" | sudo tee /etc/sysctl.d/99-sysctl.conf
 sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
 
