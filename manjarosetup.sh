@@ -2,32 +2,28 @@ sudo sed -i '/SigLevel/s/PackageRequired/PackageNever/' /etc/pacman.conf
 sudo pacman-mirrors -c Poland
 
 basestrap -GiM /mnt \
-`#Kernel`\
-linux-latest grub amd-ucode intel-ucode \
+`#Boot`\
+grub amd-ucode intel-ucode \
 `#Base`\
-bash coreutils e2fsprogs filesystem gawk grep iproute2 iputils \
-less man-db man-pages nano pciutils procps-ng psmisc \
-sed shadow usbutils util-linux openssh \
-sudo systemd systemd-sysvcompat tlp xssstate \
-patch diffutils findutils \
-`#Dev`\
-gcc gdb git pkgconf make cmake fakeroot \
-`#Graphic and Audio`\
-mesa mesa-vdpau lib32-mesa lib32-mesa-vdpau \
+base nano openssh tlp usbutils xssstate \
+`#Devel`\
+base-devel cmake git \
+`#Graphic`\
+mesa lib32-mesa \
+mesa-vdpau lib32-mesa-vdpau \
 mesa-demos \
 xorg-server xf86-video-ati \
+`#Audio`\
 pulseaudio pulseaudio-alsa alsa-utils \
 `#manjaro`\
-manjaro-xfce-minimal-settings ttf-dejavu \
-pacman pamac-cli pamac-gtk \
+manjaro-xfce-minimal-settings \
+pamac-cli pamac-gtk \
 lightdm lightdm-gtk-greeter \
 networkmanager network-manager-applet \
-manjaro-settings-manager \
 `#xfce`\
 xfwm4 xfconf xfdesktop \
 xfce4-session xfce4-panel xfce4-whiskermenu-plugin \
-xfce4-settings xfce4-terminal \
-xfce4-screenshooter xfburn \
+xfce4-settings xfce4-terminal xfce4-screenshooter \
 thunar thunar-archive-plugin thunar-media-tags-plugin \
 mousepad qpdfview viewnior engrampa \
 xdg-user-dirs gvfs catfish \
