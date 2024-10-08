@@ -1,7 +1,7 @@
 sudo pacman-mirrors -c Poland
 sudo pacman -Sy --noconfirm arch-install-scripts
 
-pacstrap -Kic /mnt \
+sudo pacstrap -Kic /mnt \
 grub update-grub amd-ucode intel-ucode \
 linux linux-firmware \
 base nano usbutils xssstate \
