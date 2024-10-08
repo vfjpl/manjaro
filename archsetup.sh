@@ -19,7 +19,7 @@ genfstab -U /mnt | sudo tee -a /mnt/etc/fstab
 sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
 echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
 echo "KEYMAP=pl" | sudo tee /mnt/etc/vconsole.conf
-sudo sed -i '/%wheel ALL=(ALL) ALL/s/#//' /mnt/etc/sudoers
+sudo sed -i '/%wheel ALL=(ALL) ALL/s/# //' /mnt/etc/sudoers
 
 arch-chroot /mnt "ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
 arch-chroot /mnt "locale-gen"
