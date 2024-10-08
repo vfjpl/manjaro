@@ -13,6 +13,7 @@
 3. stwórz system plików ext4 na pierwszej partycji
 
 `sudo mkfs.ext4 /dev/sda1`
+`sudo mkfs.ext4 /dev/sdb1`
 
 4. stwórz swap na drugiej partycji
 
@@ -21,6 +22,7 @@
 5. zamontuj pierwszą partycję
 
 `sudo mount -o noatime /dev/sda1 /mnt`
+`sudo mount -o noatime --mkdir /dev/sdb1 /mnt/home`
 
 6. zamontuj partycję swap
 
