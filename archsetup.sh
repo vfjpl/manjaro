@@ -1,6 +1,7 @@
 sudo pacman-mirrors -c Poland
 sudo pacman -Sy --noconfirm arch-install-scripts
 
+
 sudo pacstrap -ic /mnt \
 \
 grub update-grub amd-ucode intel-ucode \
@@ -21,6 +22,13 @@ xorg-server xf86-video-ati \
 lightdm lightdm-gtk-greeter \
 \
 manjaro-xfce-minimal-settings \
+xfwm4 xfconf xfdesktop \
+xfce4-session xfce4-panel xfce4-whiskermenu-plugin \
+xfce4-settings xfce4-terminal xfce4-screenshooter \
+thunar thunar-archive-plugin thunar-media-tags-plugin \
+mousepad \
+\
+xdg-user-dirs gvfs \
 \
 firefox firefox-i18n-pl hunspell-pl hunspell-en_US \
 codeblocks mpv \
@@ -28,11 +36,13 @@ codeblocks mpv \
 base-devel cmake git \
 sfml poco boost lua51 physfs
 
+
 genfstab -U /mnt | sudo tee -a /mnt/etc/fstab
 sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
 echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
 echo "KEYMAP=pl" | sudo tee /mnt/etc/vconsole.conf
 sudo sed -i '/%wheel ALL=(ALL:ALL) ALL/s/# //' /mnt/etc/sudoers
+
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
 echo "Section \"InputClass\"
 	Identifier \"system-mouse\"
