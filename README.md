@@ -26,9 +26,9 @@
 
 5. zamontuj partycję
 
-`sudo mount -o noatime /dev/sda1 /mnt`
+`sudo mount --mkdir -o noatime /dev/sda1 /mnt`
 
-`sudo mount -o noatime --mkdir /dev/sdb1 /mnt/home`
+`sudo mount --mkdir -o noatime /dev/sdb1 /mnt/home`
 
 6. zamontuj swap
 
