@@ -1,7 +1,7 @@
 sudo pacman-mirrors -c Poland
 sudo pacman -Sy --noconfirm arch-install-scripts
 
-sudo pacstrap -i /mnt \
+sudo pacstrap -ic /mnt \
 \
 grub update-grub amd-ucode intel-ucode \
 \
