@@ -31,12 +31,15 @@ genfstab -U /mnt | sudo tee -a /mnt/etc/fstab
 sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
 echo "LANG=pl_PL.UTF-8" | sudo tee /mnt/etc/locale.conf
 echo "KEYMAP=pl" | sudo tee /mnt/etc/vconsole.conf
+
 sudo sed -i '/%wheel ALL=(ALL:ALL) ALL/s/# //' /mnt/etc/sudoers
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
 sudo sed -i '/DISK_DEVICES/s/nvme0n1 sda/sda sdb/' /mnt/etc/tlp.conf
 sudo sed -i '/DISK_IOSCHED/s/mq-deadline mq-deadline/bfq bfq/' /mnt/etc/tlp.conf
 sudo sed -i '/DISK_DEVICES/s/#//' /mnt/etc/tlp.conf
 sudo sed -i '/DISK_IOSCHED/s/#//' /mnt/etc/tlp.conf
+sudo sed -i '/GRUB_TIMEOUT/s/5/1/' /mnt/etc/default/grub
+sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/udev.log_priority=3/i8042.direct/' /mnt/etc/default/grub
 
 echo "set-card-profile alsa_card.pci-0000_06_00.4 output:analog-stereo+input:analog-stereo
 set-sink-port alsa_output.pci-0000_06_00.4.analog-stereo analog-output-lineout" | sudo tee /mnt/etc/pulse/default.pa.d/card-profile-sink-port.pa
@@ -46,6 +49,7 @@ echo "Section \"InputClass\"
 	MatchIsKeyboard \"yes\"
 	Option \"XkbLayout\" \"pl\"
 EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/00-keyboard.conf
+
 echo "Section \"InputClass\"
 	Identifier \"system-mouse\"
 	Driver \"libinput\"
