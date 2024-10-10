@@ -54,13 +54,13 @@ echo "Section \"InputClass\"
 EndSection" | sudo tee /mnt/etc/X11/xorg.conf.d/50-mouse.conf
 
 
-sudo arch-chroot /mnt "/bin/ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime"
-sudo arch-chroot /mnt "/bin/locale-gen"
-sudo arch-chroot /mnt "/bin/grub-install --target=i386-pc /dev/sda"
-sudo arch-chroot /mnt "/bin/update-grub"
-sudo arch-chroot /mnt "/bin/useradd cosiek -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
-sudo arch-chroot /mnt "/bin/useradd vfjpl -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
-sudo arch-chroot /mnt "/bin/systemctl enable tlp lightdm NetworkManager"
+sudo arch-chroot /mnt ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
+sudo arch-chroot /mnt locale-gen
+sudo arch-chroot /mnt grub-install --target=i386-pc /dev/sda
+sudo arch-chroot /mnt update-grub
+sudo arch-chroot /mnt useradd cosiek -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys
+sudo arch-chroot /mnt useradd vfjpl -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys
+sudo arch-chroot /mnt systemctl enable tlp lightdm NetworkManager
 
 
 echo "Password cosiek:"
