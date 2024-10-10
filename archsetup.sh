@@ -64,6 +64,6 @@ sudo arch-chroot /mnt systemctl enable tlp lightdm NetworkManager
 
 
 echo "Password cosiek:"
-sudo arch-chroot /mnt "/bin/passwd cosiek"
+sudo arch-chroot /mnt passwd cosiek
 echo "Password vfjpl:"
-sudo arch-chroot /mnt "/bin/passwd vfjpl"
+sudo arch-chroot /mnt passwd vfjpl
