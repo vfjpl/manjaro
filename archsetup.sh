@@ -22,6 +22,7 @@ mousepad \
 xdg-user-dirs gvfs \
 firefox firefox-i18n-pl hunspell-pl hunspell-en_US \
 codeblocks mpv htop \
+steam-native-runtime \
 base-devel cmake git \
 sfml poco boost lua51 physfs
 
@@ -59,7 +60,7 @@ sudo arch-chroot /mnt "/bin/grub-install --target=i386-pc /dev/sda"
 sudo arch-chroot /mnt "/bin/update-grub"
 sudo arch-chroot /mnt "/bin/useradd cosiek -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
 sudo arch-chroot /mnt "/bin/useradd vfjpl -m -G wheel,storage,input,video,audio,power,optical,network,lp,scanner,sys"
-sudo arch-chroot /mnt "/bin/systemctl enable lightdm NetworkManager"
+sudo arch-chroot /mnt "/bin/systemctl enable tlp lightdm NetworkManager"
 
 
 echo "Password cosiek:"
