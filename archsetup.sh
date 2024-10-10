@@ -39,7 +39,7 @@ sudo sed -i '/DISK_DEVICES/s/#//' /mnt/etc/tlp.conf
 sudo sed -i '/DISK_IOSCHED/s/#//' /mnt/etc/tlp.conf
 
 echo "set-card-profile alsa_card.pci-0000_06_00.4 output:analog-stereo+input:analog-stereo
-set-sink-port alsa_output.pci-0000_06_00.4.analog-stereo analog-output-lineout" | sudo tee /etc/pulse/default.pa.d/card-profile-sink-port.pa
+set-sink-port alsa_output.pci-0000_06_00.4.analog-stereo analog-output-lineout" | sudo tee /mnt/etc/pulse/default.pa.d/card-profile-sink-port.pa
 
 echo "Section \"InputClass\"
 	Identifier \"system-keyboard\"
