@@ -18,7 +18,7 @@ xfwm4 xfconf xfdesktop \
 xfce4-session xfce4-panel xfce4-whiskermenu-plugin \
 xfce4-settings xfce4-terminal xfce4-screenshooter \
 thunar thunar-archive-plugin thunar-media-tags-plugin \
-mousepad \
+mousepad xfce4-pulseaudio-plugin pavucontrol \
 xdg-user-dirs gvfs \
 firefox firefox-i18n-pl hunspell-pl hunspell-en_US \
 codeblocks mpv htop \
