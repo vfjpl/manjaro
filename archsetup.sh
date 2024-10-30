@@ -10,7 +10,8 @@ networkmanager network-manager-applet \
 pulseaudio pulseaudio-alsa alsa-utils \
 mesa lib32-mesa \
 mesa-vdpau lib32-mesa-vdpau \
-mesa-utils \
+vulkan-radeon lib32-vulkan-radeon \
+mesa-utils vulkan-tools \
 xorg-server xf86-video-ati \
 lightdm lightdm-gtk-greeter \
 manjaro-xfce-minimal-settings \
