@@ -37,8 +37,8 @@ sudo sed -i '/pl_PL.UTF-8/s/#//' /mnt/etc/locale.gen
 sudo sed -i '/%wheel ALL=(ALL:ALL) ALL/s/# //' /mnt/etc/sudoers
 sudo sed -i '/Inherits/s/Adwaita//' /mnt/usr/share/icons/default/index.theme
 sudo sed -i '/CursorThemeName/s/xcursor-breeze//' /mnt/etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
-sudo sed -i '/DISK_DEVICES/s/nvme0n1 sda/sda/' /mnt/etc/tlp.conf
-sudo sed -i '/DISK_IOSCHED/s/mq-deadline mq-deadline/bfq/' /mnt/etc/tlp.conf
+sudo sed -i '/DISK_DEVICES/s/nvme0n1 sda/sda sdb/' /mnt/etc/tlp.conf
+sudo sed -i '/DISK_IOSCHED/s/mq-deadline mq-deadline/bfq bfq/' /mnt/etc/tlp.conf
 sudo sed -i '/DISK_DEVICES/s/#//' /mnt/etc/tlp.conf
 sudo sed -i '/DISK_IOSCHED/s/#//' /mnt/etc/tlp.conf
 sudo sed -i '/GRUB_TIMEOUT/s/5/1/' /mnt/etc/default/grub
