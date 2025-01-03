@@ -12,7 +12,7 @@ mesa lib32-mesa \
 mesa-vdpau lib32-mesa-vdpau \
 vulkan-radeon lib32-vulkan-radeon \
 mesa-utils vulkan-tools \
-xorg-server xf86-video-ati \
+xorg-server \
 lightdm lightdm-gtk-greeter \
 manjaro-xfce-minimal-settings \
 xfwm4 xfconf xfdesktop \
