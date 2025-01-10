@@ -9,7 +9,6 @@ base nano openssh tlp usbutils xssstate \
 networkmanager network-manager-applet \
 pulseaudio pulseaudio-alsa alsa-utils \
 mesa lib32-mesa \
-mesa-vdpau lib32-mesa-vdpau \
 vulkan-radeon lib32-vulkan-radeon \
 mesa-utils vulkan-tools \
 xorg-server \
